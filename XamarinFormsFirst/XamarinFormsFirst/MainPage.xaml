@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinFormsFirst"
+             x:Class="XamarinFormsFirst.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Slider x:Name="mySlider" Minimum="0" Maximum="100"></Slider>
+            <Label BindingContext="{x:Reference mySlider}" Text="{Binding Value}" BackgroundColor="Black" TextColor="White"></Label>
+            <Label Text="{Binding LabelText}" BackgroundColor="Blue" TextColor="White"></Label>
+            <Button Text="Click me!" Command="{Binding ChangeTextCommand}" ></Button>
+            <!--<Image Source="smile.jpg" Aspect="AspectFit" WidthRequest="100" HeightRequest="100"></Image>-->
+            <ListView ItemsSource="{Binding People}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<TextCell Detail="{Binding Age}" Text="{Binding Name}">
+
+                        </TextCell>-->
+                        <!--<ImageCell Text="{Binding Name}" ImageSource="{Binding Image}" Detail="{Binding Age}"></ImageCell>-->
+                        <ViewCell>
+                            <ContentView>
+                                <StackLayout Padding="20">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="End"></Label>
+                                        <Label Text="{Binding Name}" FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                   
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

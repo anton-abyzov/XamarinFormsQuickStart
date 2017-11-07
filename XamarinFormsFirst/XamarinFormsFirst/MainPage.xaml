@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamarinFormsFirst"
+             xmlns:converters="clr-namespace:XamarinFormsFirst.Converters"
              x:Class="XamarinFormsFirst.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DoubleToIntConverter x:Key="doubleToIntegerConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <Slider x:Name="mySlider" Minimum="0" Maximum="100"></Slider>
@@ -13,11 +19,11 @@
             <ListView ItemsSource="{Binding People}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!--<TextCell Detail="{Binding Age}" Text="{Binding Name}">
+                        <TextCell Detail="{Binding Age, Converter={StaticResource doubleToIntegerConverter}}" Text="{Binding Name}">
 
-                        </TextCell>-->
+                        </TextCell>
                         <!--<ImageCell Text="{Binding Name}" ImageSource="{Binding Image}" Detail="{Binding Age}"></ImageCell>-->
-                        <ViewCell>
+                        <!--<ViewCell>
                             <ContentView>
                                 <StackLayout Padding="20">
                                     <StackLayout Orientation="Horizontal">
@@ -26,7 +32,7 @@
                                     </StackLayout>
                                 </StackLayout>
                             </ContentView>
-                        </ViewCell>
+                        </ViewCell>-->
                     </DataTemplate>
                    
                 </ListView.ItemTemplate>

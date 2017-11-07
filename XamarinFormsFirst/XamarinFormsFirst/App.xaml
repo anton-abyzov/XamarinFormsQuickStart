@@ -2,9 +2,46 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinFormsFirst.App">
-	<Application.Resources>
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="View">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
 
-		<!-- Application resource dictionary -->
+            </Style>
+            <Style TargetType="Entry" BasedOn="{StaticResource BaseStyle}">
+                <Setter Property="FontSize" Value="8"></Setter>
+                <Setter Property="TextColor" Value="Blue"></Setter><!--That won't be applied!-->
+            </Style>
+            <Style TargetType="Label" BasedOn="{StaticResource BaseStyle}">
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="TextColor" Value="Red"></Setter>
+            </Style>
+            <!--<Style TargetType="Entry" BasedOn="{StaticResource BaseStyle}">
+                --><!--<Setter Property="FontSize" Value="Small"></Setter>--><!--
+                <Setter Property="TextColor" Value="Green"></Setter>
+            </Style>-->
+            <Style x:Key="BigBlueLabel" TargetType="Label" >
+                <Setter Property="HorizontalOptions" Value="Center">
 
-	</Application.Resources>
+                </Setter>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand">
+
+                </Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="TextColor" Value="Blue"></Setter>
+            </Style>
+            <Style x:Key="LittleGreenLabel" TargetType="Label" >
+                <Setter Property="HorizontalOptions" Value="Center">
+
+                </Setter>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand">
+
+                </Setter>
+                <Setter Property="FontSize" Value="Small"></Setter>
+                <Setter Property="TextColor" Value="Green"></Setter>
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
 </Application>

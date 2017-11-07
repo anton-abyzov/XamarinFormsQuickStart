@@ -15,14 +15,18 @@ namespace XamarinFormsFirst
         {
             InitializeComponent();
             BindingContext = new MainPageViewModel();
+            MessagingCenter.Subscribe<MainPageViewModel>(new MainPageViewModel(), "ButtonClicked", (sender) =>
+            {
+                DisplayAlert("Message", "Button Clicked!", "OK");
+            });
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (e.SelectedItem == null)
-                return; // catch deselection
-            var person = e.SelectedItem as Person;
-            DisplayAlert("Selected Person", person.Name, "OK");
-        }
+        //private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    if (e.SelectedItem == null)
+        //        return; // catch deselection
+        //    var person = e.SelectedItem as Person;
+        //    DisplayAlert("Selected Person", person.Name, "OK");
+        //}
     }
 }

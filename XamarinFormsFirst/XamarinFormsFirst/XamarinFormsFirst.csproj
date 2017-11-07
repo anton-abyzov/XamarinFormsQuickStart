@@ -38,7 +38,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Behaviors\BehaviorBase.cs" />
+    <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Converters\DoubleToIntConverter.cs" />
+    <Compile Include="Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
+    <Compile Include="IntValidationBehavior.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

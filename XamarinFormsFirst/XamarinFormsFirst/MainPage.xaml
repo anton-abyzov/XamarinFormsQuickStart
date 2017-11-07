@@ -2,13 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamarinFormsFirst"
+             xmlns:behaviors="clr-namespace:XamarinFormsFirst.Behaviors"
              xmlns:converters="clr-namespace:XamarinFormsFirst.Converters"
              x:Class="XamarinFormsFirst.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <converters:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter"/>
             <converters:DoubleToIntConverter x:Key="doubleToIntegerConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+    <!--<StackLayout Padding="40">
+        <Entry Placeholder="Enter an integer">
+            <Entry.Behaviors>
+                <local:IntValidationBehavior />
+            </Entry.Behaviors>
+        </Entry>
+    </StackLayout>-->
     <ContentPage.Content>
         <StackLayout>
             <Slider x:Name="mySlider" Minimum="0" Maximum="100"></Slider>
@@ -16,12 +25,22 @@
             <Label Text="{Binding LabelText}" BackgroundColor="Blue" TextColor="White"></Label>
             <Button Text="Click me!" Command="{Binding ChangeTextCommand}" ></Button>
             <!--<Image Source="smile.jpg" Aspect="AspectFit" WidthRequest="100" HeightRequest="100"></Image>-->
-            <ListView ItemsSource="{Binding People}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
+            <!--ItemSelected="ListView_ItemSelected"-->
+            <!--Converter="{StaticResource SelectedItemConverter}"-->
+            <ListView ItemsSource="{Binding People}" HasUnevenRows="True" >
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior
+                        EventName="ItemSelected"
+                        Command="{Binding ItemSelectedCommand}"
+                        Converter="{StaticResource SelectedItemConverter}"
+                        ></behaviors:EventToCommandBehavior>
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Detail="{Binding Age, Converter={StaticResource doubleToIntegerConverter}}" Text="{Binding Name}">
 
                         </TextCell>
+                      
                         <!--<ImageCell Text="{Binding Name}" ImageSource="{Binding Image}" Detail="{Binding Age}"></ImageCell>-->
                         <!--<ViewCell>
                             <ContentView>
@@ -34,9 +53,11 @@
                             </ContentView>
                         </ViewCell>-->
                     </DataTemplate>
-                   
+
                 </ListView.ItemTemplate>
             </ListView>
+            <Label
+            Text="{Binding SelectedItemText}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

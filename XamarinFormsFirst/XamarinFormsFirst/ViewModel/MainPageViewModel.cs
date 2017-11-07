@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using XamarinFormsFirst.Model;
 
@@ -24,10 +25,32 @@ namespace XamarinFormsFirst.ViewModel
             }
         }
         public Command ChangeTextCommand { get; set; }
+
+        public ICommand ItemSelectedCommand { get; private set; }
+
+        public string _selectedItemText;
+        public string SelectedItemText
+        {
+            get { return _selectedItemText; }
+            set
+            {
+                _selectedItemText = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private void HandleItemSelected(Person person)
+        {
+            SelectedItemText = $"{person.Name} {person.Age}";
+        }
+
         public MainPageViewModel()
         {
+
+            ItemSelectedCommand = new Command<Person>(HandleItemSelected);
             ChangeTextCommand = new Command(() =>
             {
+                MessagingCenter.Send(this, "ButtonClicked");
                 LabelText = "Goodbye";
                 People.Add(new Person()
                 {

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:i18n="clr-namespace:XamarinI8n; assembly=XamarinI8n"
+             x:Class="XamarinI8n.SelectLanguage">
+
+    <StackLayout>
+        <Label Text="{i18n:Translate Diary}" />
+        <Label Text="{i18n:Translate HelloWelcome}" />
+        <Button Text="Spanish" Clicked="OnSpanish" />
+        <Button Text="English" Clicked="OnEnglish" />
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinI8n"
+             xmlns:i18n="clr-namespace:XamarinI8n; assembly=XamarinI8n"
+             x:Class="XamarinI8n.MainPage">
+
+    <StackLayout Padding="20">
+        <Label Text="{i18n:Translate Welcome}" ></Label>
+        <Button Text="{i18n:Translate ClickMe}" Clicked="Button_Clicked" ></Button>
+    </StackLayout>
+
+</ContentPage>

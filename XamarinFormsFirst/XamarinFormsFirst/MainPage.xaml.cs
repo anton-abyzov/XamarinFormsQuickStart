@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamarinFormsFirst.Model;
+using XamarinFormsFirst.View;
 using XamarinFormsFirst.ViewModel;
 
 namespace XamarinFormsFirst
@@ -28,5 +29,9 @@ namespace XamarinFormsFirst
         //    var person = e.SelectedItem as Person;
         //    DisplayAlert("Selected Person", person.Name, "OK");
         //}
+        private void HandleBackButton(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EntryPage());
+        }
     }
 }

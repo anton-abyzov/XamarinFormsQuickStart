@@ -46,7 +46,6 @@ namespace XamarinFormsFirst.ViewModel
 
         public MainPageViewModel()
         {
-
             ItemSelectedCommand = new Command<Person>(HandleItemSelected);
             ChangeTextCommand = new Command(() =>
             {
@@ -64,21 +63,39 @@ namespace XamarinFormsFirst.ViewModel
                 new Person()
                 {
                     Name = "Anton Abyzov",
-                    Age = 23.2343434M
+                    Age = 23.2343434M,
+                    Phone = "797829734"
                 },
                 new Person()
                 {
                     Name = "Alena Abyzova",
-                    Age = 34.234234M
+                    Age = 34.234234M,
+                    Phone = "72222222"
                 },
                 new Person()
                 {
                     Name = "Anna Abyzova",
-                    Age = 3.29090M
+                    Age = 3.29090M,
+                    Phone = "71111111"
                 }
             };
+            //foreach (var person in Person.People)
+            //{
+            //    People.Add(person);
+            //}
+            PopulatePeople();
         }
-        public ObservableCollection<Person> People { get; set; }
+
+        private async void PopulatePeople()
+        {
+            var people = await App.Database.GetPeopleAsync();
+            foreach (var person in people)
+            {
+                People.Add(person);
+            }
+        }
+
+        public ObservableCollection<Person> People { get; set; } = new ObservableCollection<Person>();
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged([CallerMemberName] string caller = "")

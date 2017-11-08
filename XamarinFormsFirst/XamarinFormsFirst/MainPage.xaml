@@ -58,6 +58,7 @@
             </ListView>
             <Label
             Text="{Binding SelectedItemText}" />
+            <Button Text="Back to entry" Clicked="HandleBackButton"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

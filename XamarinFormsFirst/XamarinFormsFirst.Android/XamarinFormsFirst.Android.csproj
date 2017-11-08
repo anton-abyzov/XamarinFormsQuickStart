@@ -18,7 +18,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <JavaMaximumHeapSize />
@@ -118,6 +118,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="File.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -140,7 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinFormsFirst\XamarinFormsFirst.csproj">
-      <Project>{d35bd259-58da-4fdd-97c1-e2d70e42aa5c}</Project>
+      <Project>{541E795D-3BA3-483F-B0E3-1CD336EB2A84}</Project>
       <Name>XamarinFormsFirst</Name>
     </ProjectReference>
   </ItemGroup>

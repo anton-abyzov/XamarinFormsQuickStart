@@ -9,18 +9,23 @@ namespace XamarinFormsFirst.Droid
 {
     public class FileImpl : IFile
     {
-        public FileImpl()
-        {
+        public FileImpl() 
+         {
         }
 
         public string ClearFile(string filename)
         {
-            throw new NotImplementedException();
+            var docPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            var filePath = Path.Combine(docPath, filename);
+            File.Delete(filename);
+            return filename;
         }
 
         public bool FileExists(string filename)
         {
-            throw new NotImplementedException();
+            var docPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            var filePath = Path.Combine(docPath, filename);
+            return File.Exists(filePath);
         }
 
         public string LoadText(string filename)
@@ -33,7 +38,10 @@ namespace XamarinFormsFirst.Droid
 
         public void SaveText(string filename, string text)
         {
-            throw new NotImplementedException();
+            var docPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            var filePath = Path.Combine(docPath, filename);
+            File.Delete(filePath);
+            File.WriteAllText(filePath, text);
         }
     }
 }

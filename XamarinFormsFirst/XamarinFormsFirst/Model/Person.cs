@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using XamarinFormsFirst.Data;
 
 namespace XamarinFormsFirst.Model
 {
-    public class Person
+    public class Person : IEntity
     {
         public Person()
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XamarinFormsFirst.Data;
 using XamarinFormsFirst.Model;
 using XamarinFormsFirst.View;
 using XamarinFormsFirst.ViewModel;
@@ -12,10 +13,12 @@ namespace XamarinFormsFirst
 {
     public partial class MainPage : ContentPage
     {
+        MainPageViewModel _vm;
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new MainPageViewModel();
+            _vm = new MainPageViewModel();
+            BindingContext = _vm;
             MessagingCenter.Subscribe<MainPageViewModel>(new MainPageViewModel(), "ButtonClicked", (sender) =>
             {
                 DisplayAlert("Message", "Button Clicked!", "OK");
@@ -32,6 +35,22 @@ namespace XamarinFormsFirst
         private void HandleBackButton(object sender, EventArgs e)
         {
             Navigation.PushAsync(new EntryPage());
+        }
+
+        public void OnStore(object o, EventArgs e)
+        {
+            var repo = new PersonRepository();
+            repo.Save(_vm.People);
+        }
+
+        public void OnRestore(object o, EventArgs e)
+        {
+            var repo = new PersonRepository();
+            var people = repo.GetAll();
+            foreach (var person in people)
+            {
+                _vm.People.Add(person);
+            }
         }
     }
 }

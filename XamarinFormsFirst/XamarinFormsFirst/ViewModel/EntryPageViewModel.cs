@@ -20,7 +20,7 @@ namespace XamarinFormsFirst.ViewModel
             person.Phone = PhoneNumber;
             person.Age = Age;
             //Person.People.Add(person);
-            App.Database.SavePersonAsync(person);
+            //App.Database.SavePersonAsync(person);
 
         }
     }

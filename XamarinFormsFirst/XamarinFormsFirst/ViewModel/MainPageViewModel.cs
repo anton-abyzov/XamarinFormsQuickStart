@@ -79,11 +79,8 @@ namespace XamarinFormsFirst.ViewModel
                     Phone = "71111111"
                 }
             };
-            //foreach (var person in Person.People)
-            //{
-            //    People.Add(person);
-            //}
-            PopulatePeople();
+           
+            //PopulatePeople(); // uncomment for ios db use
         }
 
         private async void PopulatePeople()

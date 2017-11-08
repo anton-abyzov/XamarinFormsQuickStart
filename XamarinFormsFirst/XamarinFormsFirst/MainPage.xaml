@@ -14,7 +14,7 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand">
             <Entry Placeholder="Enter an integer">
                 <Entry.Behaviors>
                     <local:IntValidationBehavior />
@@ -58,6 +58,9 @@
             </ListView>
             <Label
             Text="{Binding SelectedItemText}" />
+            
+            <Button Text="Store" Clicked="OnStore"></Button>
+            <Button Text="Restore" Clicked="OnRestore"></Button>
             <Button Text="Back to entry" Clicked="HandleBackButton"></Button>
         </StackLayout>
     </ContentPage.Content>

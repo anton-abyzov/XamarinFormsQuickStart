@@ -14,7 +14,7 @@
                 <Setter Property="TextColor" Value="Blue"></Setter><!--That won't be applied!-->
             </Style>
             <Style TargetType="Label" BasedOn="{StaticResource BaseStyle}">
-                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="FontSize" Value="Small"></Setter>
                 <Setter Property="TextColor" Value="Red"></Setter>
             </Style>
             <!--<Style TargetType="Entry" BasedOn="{StaticResource BaseStyle}">

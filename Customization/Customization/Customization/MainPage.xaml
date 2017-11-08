@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Customization"
+             x:Class="Customization.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Switch x:Name="theSwitch"  />
+            <Slider x:Name="theSlider" ValueChanged="theSlider_ValueChanged" Maximum="255" />
+            <Button BackgroundColor="Green" Text="Click me" x:Name="theButton" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
